@@ -364,23 +364,6 @@ INSERT INTO `distrito` (`IdDistrito`, `Distrito`, `Color`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `pago`
---
-
-CREATE TABLE `pago` (
-  `idPago` int(11) NOT NULL,
-  `Monto` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `pago`
---
-
-INSERT INTO `pago` (`idPago`, `Monto`) VALUES
-(1, 4000);
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `productos`
@@ -460,6 +443,26 @@ CREATE TRIGGER `generar_codigop` BEFORE INSERT ON `proveedores` FOR EACH ROW beg
 end
 $$
 DELIMITER ;
+
+--
+-- Volcado de datos para la tabla `PEDIDOS`
+--
+
+create table `pedidos` (
+    ´idPed´ varchar(10) not null,
+    `idProducto` int(11) NOT NULL,
+    `Cantidad` int(11) NOT NULL,
+    `PrecioCompra` double NOT NULL,
+    `Estado` varchar(50) NOT NULL,
+    `Fecha` datetime not null,
+    `ID_cli` varchar(10) NOT NULL,
+    `cell_cli` int(11) DEFAULT NULL,
+    `evidencia` longblob NOT NULL)
+
+insert into `pedidos` (`idPed`,`idProducto`,`cantidad`,`PrecioCompra`,`Estado`,`Fecha`,`ID_cli`,`cell_cli`,`evidencia`)
+values ('P001','5',1,20.5,'Cancelado','2017-11-22 00:00:00','CL001',992757467,'')  
+
+
 
 -- --------------------------------------------------------
 

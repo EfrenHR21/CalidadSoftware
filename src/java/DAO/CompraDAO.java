@@ -106,10 +106,11 @@ public class CompraDAO {
     
     public List mostrarCompraTodo(){
         ArrayList<Detalle_CompraA> list = new ArrayList();
-        String sql="SELECT c.idCompras, c.idCliente, p.CodigoProducto, p.nombre, dt.Cantidad, dt.PrecioCompra, c.Estado, p.imagen "
-                + "FROM detalle_compras dt "
-                + "inner join compras c on dt.idCompras = c.idCompras "
-                + "inner join productos p on dt.idProducto = p.CodigoProducto";
+        String sql="SELECT c.idCompras, c.idCliente, p.CodigoProducto, p.nombre, dt.Cantidad, dt.PrecioCompra, c.Estado, p.imagen, v.Fecha " +
+"                 FROM detalle_compras dt " +
+"                 inner join compras c on dt.idCompras = c.idCompras " +
+"                 inner join productos p on dt.idProducto = p.CodigoProducto" +
+"                 inner join venta v on v.fecha = v.Fecha";
         try{
             con= ConexionBD.conectar();
             ps=con.prepareStatement(sql);
@@ -124,6 +125,7 @@ public class CompraDAO {
                 dt.setPrecioCompra(rs.getDouble("PrecioCompra"));
                 dt.setEstado(rs.getString("Estado"));
                 dt.setImagen(rs.getBinaryStream("imagen"));
+                dt.setFecha(rs.getString("Fecha"));
                 list.add(dt);
              }
         } catch(SQLException e){    

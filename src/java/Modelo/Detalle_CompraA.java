@@ -1,6 +1,7 @@
 package Modelo;
 
 import java.io.InputStream;
+import org.apache.derby.client.am.DateTime;
 
 public class Detalle_CompraA {
     private int idCompras;
@@ -11,11 +12,12 @@ public class Detalle_CompraA {
     private double precioCompra;
     private String estado;
     private InputStream imagen;
+    private String fecha;
 
     public Detalle_CompraA() {
     }
 
-    public Detalle_CompraA(int idCompras, String idCliente, int idPlato, String nombrePlato, int cantidad, double precioCompra, String estado, InputStream imagen) {
+    public Detalle_CompraA(int idCompras, String idCliente, int idPlato, String nombrePlato, int cantidad, double precioCompra, String estado, InputStream imagen, String fecha) {
         this.idCompras = idCompras;
         this.idCliente = idCliente;
         this.idPlato = idPlato;
@@ -24,8 +26,21 @@ public class Detalle_CompraA {
         this.precioCompra = precioCompra;
         this.estado = estado;
         this.imagen = imagen;
+        this.fecha = fecha;
     }
 
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    
+
+    
+    
     public int getIdCompras() {
         return idCompras;
     }

@@ -39,6 +39,7 @@
             ClienteDAO cliDao = new ClienteDAO();
             PlatosDAO plaDao = new PlatosDAO();
             ContadorDAO conDao = new ContadorDAO();
+            CompraDAO comDao = new CompraDAO();
         %>
         <div id="mySidenav" class="sidenav">
             <p class="logo"><span>R</span>-Pihuicho</p>
@@ -48,6 +49,7 @@
             <a href="#" data-target="#Articulos" class="icon-a"><i class="fa fa-tasks icons"></i>&nbsp;&nbsp;Articulos</a>
             <a href="#" data-target="#Clientes" class="icon-a"><i class="fa fa-user icons"></i>&nbsp;&nbsp;Clientes</a>
             <a href="#" data-target='#Rplatos'class="icon-a"><i class="fa fa-shopping-bag icons"></i>&nbsp;&nbsp;Registro Platos</a>
+            <a href="#" data-target='#Rpedidos'class="icon-a"><i class="fa fa-shopping-bag icons"></i>&nbsp;&nbsp;Pedidos</a>
             <a href="CerrarSesion" name="cerrar" class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i>&nbsp;&nbsp;Cerrar sesión</a>
         </div>
         
@@ -834,6 +836,63 @@
                     }else{}
                 %>
         </div>
+        
+        <div data-content id="rpedidos">
+            <div class="contenedor-botones">
+                    <form action="#" method="POST">
+                        <div class="boton-box2">
+                            <input  class="light-table-filter" data-table="table_id" placeholder="Buscando...">
+                        </div>
+                    </form>
+            </div>
+            <div class="col-div-12">
+                <div class="box-8">
+                    <div class="content-box">
+                        <p>Pedidos Registrados</p>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-hover table_id" id="tblClientes">
+                                <thead>
+                                    <tr>
+                                        <th> ID-PEDIDO </th>
+                                        <th> ID-CLIENTE </th>
+                                        <th> ID-PRODUCTO  </th>
+                                        <th> NOMBRE  </th>
+                                        <th> CANTIDAD </th>
+                                        <th> PRECIO </th>
+                                        <th> ESTADO </th>
+                                        <th> FECHA </th>
+                                    </tr>
+                                </thead> 
+                                <%
+                                List<Detalle_CompraA> listdt = comDao.mostrarCompraTodo();
+                                Iterator<Detalle_CompraA> iter7 = listdt.iterator(); 
+                                Detalle_CompraA det=null;
+                                while(iter7.hasNext()){
+                                    det=iter7.next();
+                                %>
+                                <tr>
+                                    <td><%= det.getIdCompras() %></td>
+                                    <td><%= det.getIdCliente()%></td>
+                                    <td><%= det.getIdPlato()%></td>
+                                    <td><%= det.getNombrePlato()%></td>
+                                    <td><%= det.getCantidad() %></td>
+                                    <td><%= det.getPrecioCompra() %></td>
+                                    <td><%= det.getEstado() %></td>
+                                    <td><%= det.getFecha()%></td>
+                                    
+                                </tr>
+                                
+                                <% 
+                                    } 
+                                %>
+                                
+                            </table>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>        
+        
             
         </main>
         <script src="js/RegAdPlato.js" type="text/javascript"></script>

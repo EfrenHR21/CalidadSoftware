@@ -124,6 +124,10 @@
                                 <input type="text" value="S/. 0.00" readonly="" class="form-control">
                                 <label>Total Pagar:</label>
                                 <input type="text" value="S/. <%= df.format(totalPagar) %>" readonly="" class="form-control">
+                                <br>
+                                <img src="Imagenes/info/yape.jpg" width="100" height="100" />
+                                <button > Subir pago</button>
+                                
                             </div>
                             <div class="card-footer">
                                 <a href="ControladorCarrito?accion=GenerarCompra&id=<%= cli.getID_cli() %>" class="btn btn-danger btn-block">Generar Compra</a>
@@ -133,6 +137,7 @@
 
                 </div>
             </div>
+                            
         </div>                
         </main>                 
                             

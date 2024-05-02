@@ -157,7 +157,7 @@ public class ControladorCarrito extends HttpServlet {
                 request.getRequestDispatcher("carrito.jsp").forward(request, response);
                 break;
             case "GenerarCompra":
-                DecimalFormat df = new DecimalFormat("#.00");
+                DecimalFormat df = new DecimalFormat("#,00");
                 double totalpago = Double.parseDouble(df.format(totalPagar));
                 Cliente cliente = new Cliente();
                 String id = request.getParameter("id");
