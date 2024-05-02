@@ -5,8 +5,13 @@
         <group>
             <file>file:/C:/xampp/htdocs/ProyDW/src/java/config/ConexionBD.java</file>
             <file>file:/C:/xampp/htdocs/ProyDW/web/Intranet_trabajador.jsp</file>
+            <file>file:/C:/xampp/htdocs/ProyDW/src/java/Modelo/Platos.java</file>
             <file>file:/C:/xampp/htdocs/ProyDW/src/java/BD/BD.sql</file>
+            <file>file:/C:/xampp/htdocs/ProyDW/src/java/Modelo/Detalle_CompraA.java</file>
+            <file>file:/C:/xampp/htdocs/ProyDW/src/java/Modelo/Pago.java</file>
             <file>file:/C:/xampp/htdocs/ProyDW/src/java/Controlador/ControladorCarrito.java</file>
+            <file>file:/C:/xampp/htdocs/ProyDW/src/java/DAO/PlatosDAO.java</file>
+            <file>file:/C:/xampp/htdocs/ProyDW/src/java/DAO/CompraDAO.java</file>
         </group>
     </open-files>
 </project-private>
