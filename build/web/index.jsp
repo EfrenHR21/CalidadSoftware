@@ -38,18 +38,7 @@
             <div class="logo">
                 <a href="index.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
             </div>
-            <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
-                <i class="fas fa-times" id="cancel"></i>
-            </label>
-            <div class="sidebar">
-                <h2>CATEGORIAS</h2>
-                <ul>
-                    <li><a href="CCarta.jsp"><i class="fas fa-qrcode"></i>Carta</a></li>
-                    <li><a href="CBebidas.jsp"><i class="fas fa-qrcode"></i>Bebidas</a></li>
-                    <li><a href="CPlatosT.jsp"><i class="fas fa-qrcode"></i>Platos Tipicos</a></li>
-                </ul>
-            </div>                     
+                         
             <div class="info-header">
                 <nav>
                     <a href="index.jsp">Tienda</a>

@@ -512,6 +512,20 @@ DELIMITER ;
 
 -- --------------------------------------------------------
 
+CREATE TABLE Comentarios (
+idComentario int NOT NULL PRIMARY KEY auto_increment,
+nombre varchar(255) not null,
+apellidos VARCHAR(255) not null,
+comentario varchar(255) not null,
+fechaC Datetime not null default CURRENT_TIMESTAMP
+);
+
+INSERT INTO `comentarios`(`idComentario`, `nombre`, `apellidos`, `comentario`, `fechaC`) 
+VALUES (1,'Efren','HR','Buen servicio','2024-04-30 16:06:02')
+
+
+ --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `venta`
 --

@@ -48,20 +48,7 @@
             <div class="logo">
                 <a href="index.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
             </div>
-            <%--barra lateral --%>
-            <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
-                <i class="fas fa-times" id="cancel"></i>
-            </label>
-            <div class="sidebar">
-                <h2>CATEGORIAS</h2>
-                <ul>
-                    <li><a href="CCarta.jsp"><i class="fas fa-qrcode"></i>Carta</a></li>
-                    <li><a href="CBebidas.jsp"><i class="fas fa-qrcode"></i>Bebidas</a></li>
-                    <li><a href="CPlatosT.jsp"><i class="fas fa-qrcode"></i>Platos Tipicos</a></li>
-                </ul>
-            </div> 
-            <%-- --%>
+            
             
             <li class="nav-item" style="font-weight: bold">
                 <a class="nav-link" href="ControladorCarrito?accion=Carrito"><i class="fa-solid fa-cart-arrow-down fa-fade">&nbsp;(<label style="color:#0500c8"> ${contador} </label>)</i>&nbsp;Carrito</a>
@@ -69,6 +56,7 @@
             <div class="info-header2">
                 <nav>
                     <a href="Intranet_cliente.jsp"><i class="fa-solid fa-hand-sparkles fa-bounce"></i>&nbsp;Bienvenid@ ${loginCliente.getNom_cli()}</a>
+                    <a href="Comentario.jsp"><i class="fa-solid fa-hand-sparkles fa-bounce"></i>&nbsp;Comentarios</a>
                     <a href="CerrarSesion" name="cerrar" class="icon-a"><i class="fa-solid fa-right-from-bracket fa-beat"></i>&nbsp;Cerrar sesión</a>
                 </nav>
              </div>

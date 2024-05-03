@@ -23,6 +23,8 @@
         <title>Restaurant Pihuicho</title>
         
         <link href="CSS-Header/EstiloHeadeR.css" rel="stylesheet">
+        <link href="CSS/Catalogo/MostrarComentario.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS/Catalogo/Comentario.css" rel="stylesheet" type="text/css"/>
         
         <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
@@ -41,7 +43,7 @@
             </div>
         </a>
         <%!
-            PlatosDAO plaDao = new PlatosDAO();
+            ComentariosDAO comDao = new ComentariosDAO();
         %>
         <header>
             <input type="checkbox" id="check"> 
@@ -62,42 +64,69 @@
              </div>
         </header> 
   
-        <div style="background: #a8a8a8; padding: 1px;">      
-            <div class="container mt-2 table_id">
-                <div class="row"> 
-                    <% 
-                    List<Platos> listPla = plaDao.obtenerProducto();
-                    Iterator<Platos> iter = listPla.iterator();
-                    Platos pla=null;
-                    while(iter.hasNext()){
-                        pla=iter.next();
-                    %>
-                    <div class="col-sm-4">
-                        <div class="card " >
-                            <div class="card-header text-center">
-                                <h6><%= pla.getNombre() %></h6>
-                            </div>
-                            <div class="card-body text-center">
-                                <i>S/. <%= pla.getPrecio() %></i><br><br>
-                                <img class="imgcar" src="RgtrPlatos?id=<%= pla.getId() %>" width="200" height="180">
-                            </div>
-                            <div class="card-footer text-center">
-                                <label><%= pla.getDescripcion() %></label>
-                                <div>
-                                    <a href="ControladorCarrito?accion=AgregarCarrito&id=<%= pla.getId() %>" class="btn btn-outline-info">Agregar Carrito</a>
-                                    <a href="ControladorCarrito?accion=Comprar&id=<%= pla.getId() %>" class="btn btn-danger">Comprar</a>
-                                </div>
-                            </div>         
-                        </div><br> 
-                    </div>
-                    <% 
-                        }
-                    %>
-                    
-                </div>               
-            </div>
-        </div>    
-            
+                    <section>
+
+                        <form class="minimalista-formulario" method="post" action="RgtrComentarios">
+
+                            <fieldset>
+                                <legend>DEJANOS TU COMENTARIO!</legend>
+                                
+                                    <div class="minimalista-contenedor-campos">
+                                        <div class="minimalista-campo">
+                                            <label>Nombre</label>
+                                            <input class="minimalista-input-text" type="text" name="nombre" readonly value='${loginCliente.getNom_cli()} ${loginCliente.getApe_cli()} '  required="">
+                                        </div>
+
+                                        <div class="minimalista-campo">
+                                            <label>Mensaje</label>
+                                            <textarea class="minimalista-input-text" type="text" name="comentario" required="" placeholder="¿Qué te parece nuestro servicio?"></textarea>
+                                        </div>
+                                    </div> <!-- .minimalista-contenedor-campos -->
+                                    <div class="minimalista-alinear-derecha flex">
+                                        <input class="minimalista-btn minimalista-btn-danger minimalista-boton" type="submit" name="enviar" value="Registrar" id="enviar">
+                                    </div>
+                                
+                            </fieldset>
+                        </form>
+                                    <%
+                                        List<Comentario> listaCom = comDao.MostarComentarios();
+                                        Iterator<Comentario> iter = listaCom.iterator();
+                                        Comentario com = null;
+                                        while(iter.hasNext()){
+                                            com = iter.next();
+                                        %>
+
+                        <div class="listita-comment">
+                           
+                            <ul id="comments-list" class="comments-list">
+                                
+                                <li>
+                                    <div class="comment-main-level">
+                                        
+                                        <!-- Avatar
+                                        <div class="comment-avatar"><img src="https://definicion.de/wp-content/uploads/2019/07/perfil-de-usuario.png" alt="10"> </div> -->
+                                        <!-- Contenedor del Comentario -->
+                                        <div class="comment-box">
+                                            <div class="comment-head">
+                                                <h6 class="comment-name by-author"><a href="http://creaticode.com/blog"> <%= com.getNombre() %></a></h6>
+                                                <%= com.getFecha() %>
+                                                <i class="fa fa-reply"></i>
+                                                <i class="fa fa-heart"></i>
+                                            </div>
+                                            <div class="comment-content">
+                                                <%= com.getComentario() %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                                   
+
+                        </section>
+            <% 
+                                       }
+                                   %>
         <footer class="footer">
             <div class="container-f">
                 <div class="footer-row">
@@ -142,3 +171,4 @@
         <script src="js/buscador.js" type="text/javascript"></script>
     </body>
 </html>
+
