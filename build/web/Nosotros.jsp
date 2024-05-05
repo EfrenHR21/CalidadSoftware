@@ -6,7 +6,7 @@
         <title>Restaurante Pihuicho</title>
         <link href="CSS/whatsapp.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS-Footer/EstiloFooterPag.css" rel="stylesheet" type="text/css"/>
+        
         <link href="CSS/Catalogo/EstiloCardc.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
         <link href="CSS-Header/EstiloHeadeR.css" rel="stylesheet" type="text/css"/>
@@ -22,29 +22,7 @@
             </div>
         </a>
         <header>
-            <input type="checkbox" id="check"> 
-            <div class="logo">
-                <a href="index.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
-            </div>
-            <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
-                <i class="fas fa-times" id="cancel"></i>
-            </label>
-            <div class="sidebar">
-                <h2>CATEGORIAS</h2>
-                <ul>
-                    <li><a href="CCarta.jsp"><i class="fas fa-qrcode"></i>Carta</a></li>
-                    <li><a href="CBebidas.jsp"><i class="fas fa-qrcode"></i>Bebidas</a></li>
-                    <li><a href="CPlatosT.jsp"><i class="fas fa-qrcode"></i>Platos Tipicos</a></li>
-                </ul>
-            </div>                     
-            <div class="info-header">
-                <nav>
-                    <a href="index.jsp">Tienda</a>
-                    <a href="RClientes.jsp">Registrarse</a>
-                    <a href="InicioS.jsp">Iniciar Sesión</a>
-                </nav>
-             </div>
+            <jsp:include page="Header.jsp" flush="true" />
         </header>
         <main>
         <div class="fondoMain">    
@@ -85,39 +63,7 @@
       </div>  
       </main>      
       <footer class="footer">
-            <div class="container-f">
-                <div class="footer-row">
-                    <div class="footer-links">
-                        <h4>Restaurant</h4>
-                        <ul>
-                            <li><a href="Nosotros.jsp">Nosotros</a></li>
-                            <li><a href="NuestraTienda.jsp">Nuestra tienda</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links">
-                        <h4>Ayuda</h4>
-                        <ul>
-                            <li><a href="MediosPago.jsp">Medios de pagos</a></li>
-                            <li><a href="PreguntasFrecuentes.jsp">Preguntas frecuentes</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links">
-                        <h4>Servicios</h4>
-                        <ul>
-                            <li><a href="Proveedores.jsp">Proveedores</a></li>
-                            <li><a href="Delivery.jsp">Delivery</a></li>
-                            <li><a href="Reservas.jsp">Reservaciones</a></li>
-                            
-                        </ul>
-                    </div>
-                    <div class="footer-links">
-                        <h4>Síguenos</h4>
-                        <div class="social-link">
-                            <a href="https://acortar.link/dxoBc1"><i class="fab fa-facebook-f"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <jsp:include page="Footer.jsp" flush="true" />
         </footer>
     </body>
 </html>

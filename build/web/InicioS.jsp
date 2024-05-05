@@ -15,27 +15,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     </head>
     <body>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <header>
-            <input type="checkbox" id="check"> 
-            <div class="logo">
-                <a href="index.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
-            </div>                    
-            <div class="info-header">
-                <nav>
-                    <a href="index.jsp">Tienda</a>
-                    <a href="RClientes.jsp">Registrarse</a>
-                </nav>
-             </div>
+            <jsp:include page="Header.jsp" flush="true" />
         </header>
         
         <main>

@@ -12,7 +12,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>  
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-        <link href="CSS-Footer/EstiloFooterPag.css" rel="stylesheet" type="text/css"/>
+       
     </head>
     
     <body>
@@ -66,39 +66,7 @@
     </main>
         
         <footer class="footer">
-            <div class="container-f">
-                <div class="footer-row">
-                    <div class="footer-links">
-                        <h4>Restaurant</h4>
-                        <ul>
-                            <li><a href="Nosotros.jsp">Nosotros</a></li>
-                            <li><a href="NuestraTienda.jsp">Nuestra tienda</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links">
-                        <h4>Ayuda</h4>
-                        <ul>
-                            <li><a href="MediosPago.jsp">Medios de pagos</a></li>
-                            <li><a href="PreguntasFrecuentes.jsp">Preguntas frecuentes</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links">
-                        <h4>Servicios</h4>
-                        <ul>
-                            <li><a href="Proveedores.jsp">Proveedores</a></li>
-                            <li><a href="Delivery.jsp">Delivery</a></li>
-                            <li><a href="Reservas.jsp">Reservaciones</a></li>
-                            
-                        </ul>
-                    </div>
-                    <div class="footer-links">
-                        <h4>Síguenos</h4>
-                        <div class="social-link">
-                            <a href="https://acortar.link/dxoBc1"><i class="fab fa-facebook-f"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <jsp:include page="Footer.jsp" flush="true" />
         </footer>
     </body>
 </html>
