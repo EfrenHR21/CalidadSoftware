@@ -29,31 +29,30 @@ public class Sesion extends HttpServlet {
         cli = cliDAO.loginCliente(correo, contra);
         tra = traDAO.loginTrabajador(correo, contra);
         HttpSession session = request.getSession();
-         if(request.getParameter("cerrar")!=null){
+        if(request.getParameter("cerrar")!=null){
             session.removeAttribute("loginTrabajador");
             session.removeAttribute("loginCliente");
             session.invalidate();
             response.sendRedirect("index.jsp");
-        }
-        if(tra!=null && tra.getCorreo()!=null && tra.getContra()!=null && tra.getCargo_trab().equals("TR001")){
+        }else{ 
+        if(tra.getCorreo()!=null && tra.getContra()!=null && tra.getCargo_trab().equals("TR001")){
             session.setAttribute("loginTrabajador", tra);
             response.sendRedirect("Intranet_trabajador.jsp");  
         }else{
-        if(tra!=null && tra.getCorreo()!=null && tra.getContra()!=null){
+        if(tra.getCorreo()!=null && tra.getContra()!=null){
             session.setAttribute("loginTrabajador", tra);
             response.sendRedirect("Intranet_trabajador_2.jsp");
 //      request.getRequestDispatcher("Intranet_trabajador.jsp").forward(request, response);
-        }}
-        if(cli!=null && cli.getCorreo()!=null && cli.getContra()!=null){
+        }else{
+        if( cli.getCorreo()!=null && cli.getContra()!=null){
             session.setAttribute("loginCliente", cli);
             response.sendRedirect("Intranet_cliente.jsp");
 //      request.getRequestDispatcher("/Intranet_cliente.jsp").forward(request, response);
-        if(tra==null && cli==null){
+        }else{    
             mensaje = "Datos ingresados son incorrectos";
             request.setAttribute("mensajito", mensaje);
             request.getRequestDispatcher("InicioS.jsp").forward(request, response);
-        }
-        }
+        }}}}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
