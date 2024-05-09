@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class ConexionBD {
     
-    public static String url = "jdbc:mysql://localhost:3306/restaurant";
+    public static String url = "jdbc:mysql://localhost:3307/restaurant";
     public static String usuario = "root";
     public static String clave = "";
     public static String clase = "com.mysql.jdbc.Driver";

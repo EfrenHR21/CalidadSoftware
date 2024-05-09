@@ -8,7 +8,7 @@
         <link rel="icon" type="image/png" href="Imagenes/IProductos/Inicio/LOGO.jpg">
         <title>Restaurante Pihuicho</title>
         <link href="CSS-Login/EstiloHLogin.css.css" rel="stylesheet">
-        <link href="CSS-Header/EstiloHeadeR.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet" type="text/css"/>
         <link href="CSS-Login/EstiloLogin01.css" rel="stylesheet">
         <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>

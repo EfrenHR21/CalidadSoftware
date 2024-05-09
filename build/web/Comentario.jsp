@@ -22,10 +22,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <title>Restaurant Pihuicho</title>
         
-        <link href="CSS-Header/EstiloHeadeR.css" rel="stylesheet">
+        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet">
         <link href="CSS/Catalogo/MostrarComentario.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/Comentario.css" rel="stylesheet" type="text/css"/>
-        
         <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
         <link href="CSS-Main-Principal/EstiloMPrincipal.css" rel="stylesheet">
@@ -59,8 +58,10 @@
                 <nav>
                     <a href="Intranet_cliente.jsp"><i class="fa-solid fa-hand-sparkles fa-bounce"></i>&nbsp;Bienvenid@ ${loginCliente.getNom_cli()}</a>
                     <a href="Comentario.jsp"><i class="fa-solid fa-hand-sparkles fa-bounce"></i>&nbsp;Comentarios</a>
-                    <a href="CerrarSesion" name="cerrar" class="icon-a"><i class="fa-solid fa-right-from-bracket fa-beat"></i>&nbsp;Cerrar sesión</a>
                 </nav>
+                <form action="Sesion" method="POST">
+                   <button name="cerrar" class="button type1" class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i>&nbsp;Cerrar Sesión</button>
+                </form>
              </div>
         </header> 
   

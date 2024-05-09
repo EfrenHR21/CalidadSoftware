@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" type="image/png" href="Imagenes/IProductos/Inicio/LOGO.jpg">
         <title>Restaurante Pihuicho</title>
-        <link href="CSS-Header/EstiloHeadeR.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet" type="text/css"/>
         <link href="CSS-Login/EstiloLogin01.css" rel="stylesheet">
         <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
@@ -23,7 +23,7 @@
             <div class="contenedor-login">
                 <div class="login-box">
                     <h2>Inicio de sesión</h2>    
-                    <form action="IniciarSesion" method="POST"> 
+                    <form action="Sesion" method="POST"> 
                        <div class="user-box">
                         <input type="email" name="correo" id="correo" required="">
                         <label>Correo</label>

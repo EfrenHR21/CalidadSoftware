@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ProyDW/src/java/DAO/ComentariosDAO.java</file>
-            <file>file:/C:/xampp/htdocs/ProyDW/src/java/Modelo/Comentario.java</file>
-            <file>file:/C:/xampp/htdocs/ProyDW/web/Intranet_trabajador.jsp</file>
-            <file>file:/C:/xampp/htdocs/ProyDW/web/Comentario.jsp</file>
-            <file>file:/C:/xampp/htdocs/ProyDW/src/java/Modelo/Detalle_CompraA.java</file>
-            <file>file:/C:/xampp/htdocs/ProyDW/src/java/BD/BD.sql</file>
-            <file>file:/C:/xampp/htdocs/ProyDW/src/java/Modelo/Pago.java</file>
-            <file>file:/C:/xampp/htdocs/ProyDW/src/java/Controlador/RgtrComentarios.java</file>
+            <file>file:/C:/xampp/htdocs/CalidadSoftware/src/java/Controlador/SesionS.java</file>
+            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/MCarrito.jsp</file>
+            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/Intranet_trabajador_2.jsp</file>
+            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/Intranet_trabajador.jsp</file>
+            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/Intranet_cliente.jsp</file>
+            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/InicioS.jsp</file>
+            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

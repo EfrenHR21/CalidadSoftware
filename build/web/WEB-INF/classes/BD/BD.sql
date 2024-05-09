@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2023 a las 19:21:44
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 03-05-2024 a las 22:19:50
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -185,6 +185,30 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `idComentario` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `comentario` varchar(255) NOT NULL,
+  `fechaC` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`idComentario`, `nombre`, `comentario`, `fechaC`) VALUES
+(2, 'Jose', 'Buen plato', '2024-05-03 12:18:06'),
+(3, 'Juan Perez ', 'asdasd', '2024-05-03 12:34:17'),
+(4, 'Juan Perez ', 'bvdf', '2024-05-03 12:55:42'),
+(5, 'Juan Perez ', 'alasdasdas\r\n', '2024-05-03 13:01:27'),
+(6, 'Sara Connor ', 'asfasdf', '2024-05-03 13:02:33');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `compras`
 --
 
@@ -213,7 +237,11 @@ INSERT INTO `compras` (`idCompras`, `idCliente`, `FechaCompras`, `Monto`, `Estad
 (10, 'CL011', '2023-07-11', 13.5, 'Cancelado'),
 (11, 'CL002', '2023-07-11', 71.5, 'Cancelado'),
 (12, 'CL003', '2023-07-12', 39.8, 'Cancelado'),
-(13, 'CL004', '2023-07-12', 56.4, 'Cancelado');
+(13, 'CL004', '2023-07-12', 56.4, 'Cancelado'),
+(14, 'CL001', '2024-05-01', 30, 'Cancelado'),
+(15, 'CL001', '2024-05-01', 30, 'Cancelado'),
+(16, 'CL001', '2024-05-01', 15, 'Cancelado'),
+(17, 'CL001', '2024-05-01', 19, 'Cancelado');
 
 -- --------------------------------------------------------
 
@@ -331,7 +359,13 @@ INSERT INTO `detalle_compras` (`idDetalle`, `idProducto`, `idCompras`, `Cantidad
 (102, 4, 12, 1, 18.9),
 (103, 2, 13, 1, 15.5),
 (104, 3, 13, 2, 13.5),
-(105, 9, 13, 1, 13.9);
+(105, 9, 13, 1, 13.9),
+(106, 12, 14, 1, 15),
+(107, 2, 14, 1, 15.5),
+(108, 12, 15, 1, 15),
+(109, 2, 15, 1, 15.5),
+(110, 12, 16, 1, 15),
+(111, 4, 17, 1, 18.9);
 
 -- --------------------------------------------------------
 
@@ -364,6 +398,48 @@ INSERT INTO `distrito` (`IdDistrito`, `Distrito`, `Color`) VALUES
 
 -- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `pago`
+--
+
+CREATE TABLE `pago` (
+  `idPago` int(11) NOT NULL,
+  `Monto` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pago`
+--
+
+INSERT INTO `pago` (`idPago`, `Monto`) VALUES
+(1, 4000);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedidos`
+--
+
+CREATE TABLE `pedidos` (
+  `idPed` varchar(10) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `PrecioCompra` double NOT NULL,
+  `Estado` varchar(50) NOT NULL,
+  `Fecha` datetime NOT NULL,
+  `ID_cli` varchar(10) NOT NULL,
+  `cell_cli` int(11) DEFAULT NULL,
+  `evidencia` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`idPed`, `idProducto`, `Cantidad`, `PrecioCompra`, `Estado`, `Fecha`, `ID_cli`, `cell_cli`, `evidencia`) VALUES
+('P001', 5, 1, 20.5, 'Cancelado', '2017-11-22 00:00:00', 'CL001', 992757467, '');
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `productos`
@@ -444,26 +520,6 @@ end
 $$
 DELIMITER ;
 
---
--- Volcado de datos para la tabla `PEDIDOS`
---
-
-create table `pedidos` (
-    ´idPed´ varchar(10) not null,
-    `idProducto` int(11) NOT NULL,
-    `Cantidad` int(11) NOT NULL,
-    `PrecioCompra` double NOT NULL,
-    `Estado` varchar(50) NOT NULL,
-    `Fecha` datetime not null,
-    `ID_cli` varchar(10) NOT NULL,
-    `cell_cli` int(11) DEFAULT NULL,
-    `evidencia` longblob NOT NULL)
-
-insert into `pedidos` (`idPed`,`idProducto`,`cantidad`,`PrecioCompra`,`Estado`,`Fecha`,`ID_cli`,`cell_cli`,`evidencia`)
-values ('P001','5',1,20.5,'Cancelado','2017-11-22 00:00:00','CL001',992757467,'')  
-
-
-
 -- --------------------------------------------------------
 
 --
@@ -512,20 +568,6 @@ DELIMITER ;
 
 -- --------------------------------------------------------
 
-CREATE TABLE Comentarios (
-idComentario int NOT NULL PRIMARY KEY auto_increment,
-nombre varchar(255) not null,
-apellidos VARCHAR(255) not null,
-comentario varchar(255) not null,
-fechaC Datetime not null default CURRENT_TIMESTAMP
-);
-
-INSERT INTO `comentarios`(`idComentario`, `nombre`, `apellidos`, `comentario`, `fechaC`) 
-VALUES (1,'Efren','HR','Buen servicio','2024-04-30 16:06:02')
-
-
- --------------------------------------------------------
-
 --
 -- Estructura de tabla para la tabla `venta`
 --
@@ -561,7 +603,7 @@ CREATE TABLE `visitacontador` (
 --
 
 INSERT INTO `visitacontador` (`ID_counter`, `counter`) VALUES
-(1, 739);
+(1, 771);
 
 --
 -- Índices para tablas volcadas
@@ -592,6 +634,12 @@ ALTER TABLE `cargo`
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`ID_cli`),
   ADD KEY `COD_admin` (`COD_admin`);
+
+--
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`idComentario`);
 
 --
 -- Indices de la tabla `compras`
@@ -660,16 +708,22 @@ ALTER TABLE `visitacontador`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `idCompras` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idCompras` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_compras`
 --
 ALTER TABLE `detalle_compras`
-  MODIFY `idDetalle` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `idDetalle` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT de la tabla `pago`
@@ -721,4 +775,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-

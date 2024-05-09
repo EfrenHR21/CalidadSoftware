@@ -9,7 +9,7 @@
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
         <link href="CSS-Main-Principal/EstiloMPrincipal.css" rel="stylesheet">
         <link href="CSS-Main-Principal/EstiloMasVendidos.css" rel="stylesheet">
-        <link href="CSS-Header/EstiloHeadeR.css" rel="stylesheet">
+        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet">
         
         <link href="CSS/EstiloProveedores.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">

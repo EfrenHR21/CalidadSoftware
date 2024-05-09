@@ -31,7 +31,7 @@
         <link href="CSS-Footer/EstiloFooterPag.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" >
-        <link href="CSS-Header/EstiloHeadeR.css" rel="stylesheet">
+        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet">
     </head>
     <body>
         
@@ -44,19 +44,19 @@
 
         <header>
             <div class="logo">
-                <a href="MPrincipal.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
+                <a href="index.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
             </div>
-                     
-            <div class="info-header">
+            <div class="info-header2">
                 <nav>
                     <a href="MCarrito.jsp"><i class="fa-solid fa-arrows-rotate fa-spin"></i>&nbsp;Seguir comprando</a>
                     <a href="Intranet_cliente.jsp"><i class="fa-solid fa-hand-sparkles fa-bounce"></i>&nbsp;Bienvenid@ ${loginCliente.getNom_cli()}</a>
-                    <a href="CerrarSesion" name="cerrar" class="icon-a"><i class="fa-solid fa-right-from-bracket fa-beat"></i>&nbsp;Cerrar sesión</a>
                 </nav>
+                <form action="Sesion" method="POST">
+                   <button name="cerrar" class="button type1" class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i>&nbsp;Cerrar Sesión</button>
+                </form>
              </div>
-        </header> 
+        </header>
         
-
         <%
            DecimalFormat df = new DecimalFormat("#.00");
            double totalPagar=(double)request.getAttribute("totalPagar");

@@ -30,7 +30,7 @@ public class RgtrCliente extends HttpServlet {
             Cliente cli = new Cliente(nom_cli, ape_cli, correo, contra, id_dist, edad, cell_cli);
             ClienteDAO cliDao = new ClienteDAO();
             
-            if( request.getParameter("enviar") != null && request.getParameter("distrito_cli").equals("0") ){
+            if(request.getParameter("enviar") != null && request.getParameter("distrito_cli").equals("0") ){
                 mensaje = "Error: Registro Incompleto";
             }else if(request.getParameter("enviar") != null){
                 res = cliDao.insertarCliente(cli);

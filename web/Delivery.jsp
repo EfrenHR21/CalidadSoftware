@@ -7,7 +7,7 @@
         <link href="CSS/whatsapp.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS-Header/EstiloHeadeR.css" rel="stylesheet">
+        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet">
         <link href="CSS/EstiloDeliverys.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" >

@@ -9,7 +9,7 @@
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
         <link href="CSS-Main-Principal/EstiloMPrincipal.css" rel="stylesheet">
         <link href="CSS-Main-Principal/EstiloMVendido.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS-Header/EstiloHeadeR.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/EstiloPreguntas.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"> 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" >

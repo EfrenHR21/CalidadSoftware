@@ -22,7 +22,7 @@
         <link href="CSS/StyleAdProduct.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" >
-        <link href="CSS-Intranet/EstiloDashh.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS-Intranet/EstiloDash.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </head>
     <body>
@@ -49,7 +49,9 @@
             <a href="#" data-target="#Articulos" class="icon-a"><i class="fa fa-tasks icons"></i>&nbsp;&nbsp;Articulos</a>
             <a href="#" data-target="#Clientes" class="icon-a"><i class="fa fa-user icons"></i>&nbsp;&nbsp;Clientes</a>
             <a href="#" data-target='#Rplatos'class="icon-a"><i class="fa fa-shopping-bag icons"></i>&nbsp;&nbsp;Registro Platos</a>
-            <a href="CerrarSesion" name="cerrar" class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i>&nbsp;&nbsp;Cerrar sesión</a>
+            <form action="Sesion" method="POST">
+                <button name="cerrar" class="button type1" class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i><span class="btn-txt">&nbsp;&nbsp;Cerrar Sesión</span></button>
+            </form>
         </div>
         
         <header>   
