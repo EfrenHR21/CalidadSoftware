@@ -91,6 +91,7 @@
                                         <th class="colorCabecera">FECHA COMPRA</th>
                                         <th class="colorCabecera">MONTO</th>
                                         <th class="colorCabecera">ESTADO</th> 
+                                        <th class="colorCabecera">PAGO</th>
                                     </tr>
                                 </thead>  
                                 <%   
@@ -107,6 +108,7 @@
                                     <td > <%= comp.getFecha() %> </td>
                                     <td > <%= comp.getMonto() %> </td>
                                     <td > <%= comp.getEstado() %> </td>
+                                    <td ><img <%= comp.getImagen() %>" height="50px" width="80px"> </td>
                                 </tr>
                                 <% 
                                     } }

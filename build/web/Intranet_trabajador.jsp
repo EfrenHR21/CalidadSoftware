@@ -863,6 +863,7 @@
                                         <th> PRECIO </th>
                                         <th> ESTADO </th>
                                         <th> FECHA </th>
+                                        <th> PAGO </th>
                                     </tr>
                                 </thead> 
                                 <%
@@ -881,7 +882,7 @@
                                     <td><%= det.getPrecioCompra() %></td>
                                     <td><%= det.getEstado() %></td>
                                     <td><%= det.getFecha()%></td>
-                                    
+                                    <td ><img src="ControladorCarrito?id=<%= det.getImagen()%>" height="50px" width="80px"> </td>
                                 </tr>
                                 
                                 <% 
@@ -893,6 +894,7 @@
                     </div> 
                 </div>
             </div>
+                
         </div>        
         
             

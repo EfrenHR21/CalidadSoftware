@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/Intranet_trabajador.jsp</file>
-            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/Intranet_trabajador_2.jsp</file>
-            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/Intranet_cliente.jsp</file>
-            <file>file:/C:/xampp/htdocs/CalidadSoftware/src/java/Controlador/Sesion.java</file>
-            <file>file:/C:/xampp/htdocs/CalidadSoftware/web/index.jsp</file>
+            <file>file:/C:/xampp/htdocs/Calidad/src/java/DAO/CompraDAO.java</file>
+            <file>file:/C:/xampp/htdocs/Calidad/src/java/DAO/PlatosDAO.java</file>
+            <file>file:/C:/xampp/htdocs/Calidad/src/java/BD/BD.sql</file>
+            <file>file:/C:/xampp/htdocs/Calidad/src/java/Modelo/Platos.java</file>
+            <file>file:/C:/xampp/htdocs/Calidad/web/Intranet_cliente.jsp</file>
+            <file>file:/C:/xampp/htdocs/Calidad/src/java/Modelo/Compra.java</file>
+            <file>file:/C:/xampp/htdocs/Calidad/web/Intranet_trabajador.jsp</file>
         </group>
     </open-files>
 </project-private>

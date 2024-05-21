@@ -1,21 +1,23 @@
-
 package Modelo;
 
+import java.io.InputStream;
 import java.util.List;
 
 public class Compra {
+
     private int id;
     private Cliente cliente;
-    private int idpago;
     private String fecha;
     private Double monto;
     private String estado;
-    
-    private List<Carrito>detallecompras;
+    private InputStream imagen;
+    private List<Carrito> detallecompras;
 
+    // Constructor por defecto
     public Compra() {
     }
 
+    // Constructor con parámetros sin imagen
     public Compra(Cliente cliente, String fecha, Double monto, String estado, List<Carrito> detallecompras) {
         this.cliente = cliente;
         this.fecha = fecha;
@@ -24,6 +26,17 @@ public class Compra {
         this.detallecompras = detallecompras;
     }
 
+    // Constructor con todos los parámetros, incluyendo la imagen
+    public Compra(Cliente cliente, String fecha, Double monto, String estado, List<Carrito> detallecompras, InputStream imagen) {
+        this.cliente = cliente;
+        this.fecha = fecha;
+        this.monto = monto;
+        this.estado = estado;
+        this.detallecompras = detallecompras;
+        this.imagen = imagen;
+    }
+
+    // Getters y setters...
     public int getId() {
         return id;
     }
@@ -38,14 +51,6 @@ public class Compra {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-    }
-
-    public int getIdpago() {
-        return idpago;
-    }
-
-    public void setIdpago(int idpago) {
-        this.idpago = idpago;
     }
 
     public String getFecha() {
@@ -72,6 +77,14 @@ public class Compra {
         this.estado = estado;
     }
 
+    public InputStream getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(InputStream imagen) {
+        this.imagen = imagen;
+    }
+
     public List<Carrito> getDetallecompras() {
         return detallecompras;
     }
@@ -79,6 +92,4 @@ public class Compra {
     public void setDetallecompras(List<Carrito> detallecompras) {
         this.detallecompras = detallecompras;
     }
-    
-    
 }

@@ -1,7 +1,6 @@
 package Modelo;
 
 import java.io.InputStream;
-import org.apache.derby.client.am.DateTime;
 
 public class Detalle_CompraA {
     private int idCompras;
