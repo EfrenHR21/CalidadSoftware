@@ -1,3 +1,5 @@
+<%@page import="java.math.BigInteger"%>
+<%@page import="java.security.MessageDigest"%>
 <%@page import="DAO.*" %>
 <%@page import="Modelo.*" %>
 <%@page import="Controlador.*" %>
@@ -9,12 +11,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="icon" type="image/png" href="Imagenes/IProductos/Inicio/LOGO.jpg">
         <title>Restaurante Pihuicho</title>
-        <link href="CSS-Login/EstiloHLogin.css.css" rel="stylesheet">
         <link href="CSS-Header/EstiloHeade.css" rel="stylesheet" type="text/css"/>
         <link href="CSS-Login/EstiloLogin01.css" rel="stylesheet">
         <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <body>
@@ -35,6 +37,7 @@
         </header>
         
         <main>
+
             <div class="contenedor-cliente">
                 <div class="login-box">
                     <h2>Registro Cliente</h2>
@@ -65,19 +68,28 @@
                           </div>
                       </div><br>  
                        <div class="user-box">
-                        <input type="text" name="correo" required="">
+                           <input type="email" name="correo" required="">
                         <label>Correo</label>
                       </div> 
                       <div class="user-box">
-                        <input type="password" name="contra" required="">
+                          <input type="text" name="contra" id="contra" required="">
                         <label>Contraseña</label>
+                        <ul>
+                            <li id="mayus">1 mayuscula</li> 
+                           <li id="minus">1 minuscula</li> 
+                           <li id="special">1 caracter especial</li> 
+                           <li id="number">1 numero</li> 
+                           <li id="len"> 8 caracteres</li> 
+                        </ul>
+                        <span id="mensaje" ></span>
                       </div>
+                      
                       <div class="user-box">
-                        <input type="text" name="edad" required="">
+                        <input type="text" name="edad" pattern="[0-9]+" required="">
                         <label>Edad</label>
                       </div> 
                       <div class="user-box">
-                        <input type="text" name="cell_cli" required="">
+                          <input type="text" name="cell_cli" pattern="[0-9]+" required="">
                         <label>Numero</label>
                       </div>                          
                       <div class="boton-box">
@@ -86,14 +98,18 @@
                     </form>
                 </div>
             </div>    
-        </main>
-        <% 
+              <% 
             if(request.getAttribute("message")!=null){
         %>
         <script>alert('<%= request.getAttribute("message") %>') </script>
+        
+        <script src="js/registro.js" type="text/javascript"></script>
         <% 
             }
-        %> 
+        %>              
+        
+        
     </body>
 </html>
+ 
 

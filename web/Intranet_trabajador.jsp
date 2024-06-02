@@ -901,7 +901,7 @@
         </main>
         <script src="js/RegAdPlato.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        
+        <script src="js/RegistroClientes.js" type="text/javascript"></script>
         <script type="text/javascript">
             $("main").css('margin-left','300px');
             $("main").css('transition','0.5s');
