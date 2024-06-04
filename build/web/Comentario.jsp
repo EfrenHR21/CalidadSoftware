@@ -22,8 +22,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <title>Restaurant Pihuicho</title>
         
-        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet">
         <link href="CSS/Catalogo/MostrarComentario.css" rel="stylesheet" type="text/css"/>
+        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet">
         <link href="CSS/Catalogo/Comentario.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
@@ -49,8 +49,8 @@
             <div class="logo">
                 <a href="index.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
             </div>
-            
-            
+
+
             <li class="nav-item" style="font-weight: bold">
                 <a class="nav-link" href="ControladorCarrito?accion=Carrito"><i class="fa-solid fa-cart-arrow-down fa-fade">&nbsp;(<label style="color:#0500c8"> ${contador} </label>)</i>&nbsp;Carrito</a>
             </li>
@@ -60,84 +60,86 @@
                     <a href="Comentario.jsp"><i class="fa-solid fa-hand-sparkles fa-bounce"></i>&nbsp;Comentarios</a>
                 </nav>
                 <form action="Sesion" method="POST">
-                   <button name="cerrar" class="button type1" class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i>&nbsp;Cerrar Sesión</button>
+                    <button name="cerrar" class="button type1" class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i>&nbsp;Cerrar Sesión</button>
                 </form>
-             </div>
+            </div>
         </header> 
-  
-                    <section>
 
-                        <form class="minimalista-formulario" method="post" action="RgtrComentarios">
+        <section>
 
-                            <fieldset>
-                                <legend>DEJANOS TU COMENTARIO!</legend>
-                                
-                                    <div class="minimalista-contenedor-campos">
-                                        <div class="minimalista-campo">
-                                            <label>Nombre</label>
-                                            <input class="minimalista-input-text" type="text" name="nombre" readonly value='${loginCliente.getNom_cli()} ${loginCliente.getApe_cli()} '  required="">
-                                        </div>
+            <form class="minimalista-formulario" method="post" action="RgtrComentarios">
 
-                                        <div class="minimalista-campo">
-                                            <label>Mensaje</label>
-                                            <textarea class="minimalista-input-text" type="text" name="comentario" required="" placeholder="¿Qué te parece nuestro servicio?"></textarea>
-                                        </div>
-                                    </div> <!-- .minimalista-contenedor-campos -->
-                                    <div class="minimalista-alinear-derecha flex">
-                                        <input class="minimalista-btn minimalista-btn-danger minimalista-boton" type="submit" name="enviar" value="Registrar" id="enviar">
-                                    </div>
-                                
-                            </fieldset>
-                        </form>
-                                    <%
-                                        List<Comentario> listaCom = comDao.MostarComentarios();
-                                        Iterator<Comentario> iter = listaCom.iterator();
-                                        Comentario com = null;
-                                        while(iter.hasNext()){
-                                            com = iter.next();
-                                        %>
+                <fieldset>
+                    <legend>DEJANOS TU COMENTARIO!</legend>
 
-                        <div class="listita-comment">
-                           
-                            <ul id="comments-list" class="comments-list">
-                                
-                                <li>
-                                    <div class="comment-main-level">
-                                        
-                                        <!-- Avatar
-                                        <div class="comment-avatar"><img src="https://definicion.de/wp-content/uploads/2019/07/perfil-de-usuario.png" alt="10"> </div> -->
-                                        <!-- Contenedor del Comentario -->
-                                        <div class="comment-box">
-                                            <div class="comment-head">
-                                                <h6 class="comment-name by-author"><a href="http://creaticode.com/blog"> <%= com.getNombre() %></a></h6>
-                                                <%= com.getFecha() %>
-                                                <i class="fa fa-reply"></i>
-                                                <i class="fa fa-heart"></i>
-                                            </div>
-                                            <div class="comment-content">
-                                                <%= com.getComentario() %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                    <div class="minimalista-contenedor-campos">
+                        <div class="minimalista-campo">
+                            <label>Nombre</label>
+                            <input class="minimalista-input-text" type="text" name="nombre" readonly value='${loginCliente.getNom_cli()} ${loginCliente.getApe_cli()} '  required="">
                         </div>
-                                   
 
-                        </section>
-            <% 
-                                       }
-                                   %>
+                        <div class="minimalista-campo">
+                            <label>Mensaje</label>
+                            <textarea class="minimalista-input-text" type="text" name="comentario" required="" placeholder="¿Qué te parece nuestro servicio?"></textarea>
+                        </div>
+                    </div> <!-- .minimalista-contenedor-campos -->
+                    <div class="minimalista-alinear-derecha flex">
+                        <input class="minimalista-btn minimalista-btn-danger minimalista-boton" type="submit" name="enviar" value="Registrar" id="enviar">
+                    </div>
+
+                </fieldset>
+            </form>
+            <%
+                List<Comentario> listaCom = comDao.MostarComentarios();
+                Iterator<Comentario> iter = listaCom.iterator();
+                Comentario com = null;
+                while (iter.hasNext()) {
+                    com = iter.next();
+            %>
+ 
+            
+
+                   
+            <div class="listita-comment">
+
+                <ul id="comments-list" class="comments-list">
+
+                    <li>
+                        <div class="comment-main-level">
+
+                            <!-- Avatar
+                            <div class="comment-avatar"><img src="https://definicion.de/wp-content/uploads/2019/07/perfil-de-usuario.png" alt="10"> </div> -->
+                            <!--  Contenedor del Comentario -->
+                            <div class="comment-box">
+                                <div class="comment-head">
+                                    <h6 class="comment-name by-author"> <%= com.getNombre()%></a></h6>
+                                    <%= com.getFecha()%>
+                                    <i class="fa fa-reply"></i>
+                                    <i class="fa fa-heart"></i>
+                                </div>
+                                <div class="comment-content">
+                                    <%= com.getComentario()%>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+        </section>
+        <%
+            }
+        %>
         <footer class="footer">
             <jsp:include page="Footer.jsp" flush="true" />
         </footer> 
-           
-        
+
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-        <script src="js/buscador.js" type="text/javascript"></script>
+
     </body>
 </html>
 

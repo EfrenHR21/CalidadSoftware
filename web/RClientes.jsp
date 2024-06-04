@@ -16,6 +16,7 @@
         <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
         <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <script src="https://kit.fontawesome.com/5c16d42d2a.js" crossorigin="anonymous"></script>
         
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
@@ -72,16 +73,18 @@
                         <label>Correo</label>
                       </div> 
                       <div class="user-box">
-                          <input type="text" name="contra" id="contra" required="">
-                        <label>Contraseña</label>
+                          <input type="text" name="contra" id="password" required="">
+                           <label>Contraseña</label>
+                          <button class="btn btn-warning form-control" type="button" id="btnMostrarClave" >Mostrar!</button>
+                           <span id="mensaje" ></span>
                         <ul>
                             <li id="mayus">1 mayuscula</li> 
                            <li id="minus">1 minuscula</li> 
                            <li id="special">1 caracter especial</li> 
                            <li id="number">1 numero</li> 
-                           <li id="len"> 8 caracteres</li> 
+                           <li id="len"> 6 caracteres</li> 
                         </ul>
-                        <span id="mensaje" ></span>
+                        
                       </div>
                       
                       <div class="user-box">
@@ -101,13 +104,15 @@
               <% 
             if(request.getAttribute("message")!=null){
         %>
+        
         <script>alert('<%= request.getAttribute("message") %>') </script>
         
-        <script src="js/registro.js" type="text/javascript"></script>
         <% 
             }
         %>              
-        
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+        <script src="js/script.js" type="text/javascript"></script>
         
     </body>
 </html>
