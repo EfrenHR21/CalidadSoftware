@@ -1,6 +1,6 @@
 package Controlador;
 
-import DAO.PlatosDAO;
+import Persistencia.PlatosDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

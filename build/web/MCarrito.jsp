@@ -2,8 +2,8 @@
 <%@page import="java.util.*" %>
 <%@page import="config.ConexionBD" %>
 <%@page import="Controlador.*" %>
-<%@page import="Modelo.*" %>
-<%@page import="DAO.*" %>
+<%@page import="Persistencia.*" %>
+<%@page import="Negocio.*" %>
 
 <% 
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -41,9 +41,8 @@
             PlatosDAO plaDao = new PlatosDAO();
         %>
         <header>
-            <input type="checkbox" id="check"> 
             <div class="logo">
-                <a href="index.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
+                <a href="indexLog.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
             </div>
             
             

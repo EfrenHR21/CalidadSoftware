@@ -1,5 +1,5 @@
 
-package Modelo;
+package Negocio;
 
 import java.io.InputStream;
 

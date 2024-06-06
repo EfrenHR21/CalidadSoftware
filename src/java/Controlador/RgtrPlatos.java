@@ -1,8 +1,8 @@
 
 package Controlador;
 
-import DAO.PlatosDAO;
-import Modelo.*;
+import Negocio.Platos;
+import Persistencia.PlatosDAO;
 import java.io.IOException;
 import java.io.*;
 import java.io.PrintWriter;

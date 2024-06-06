@@ -1,5 +1,5 @@
 
-package DAO;
+package Persistencia;
 
 import config.ConexionBD;
 import java.sql.*;

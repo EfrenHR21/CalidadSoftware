@@ -1,5 +1,5 @@
 
-package Modelo;
+package Negocio;
 
 public class Proveedor {
     private String idProv, nombreProv, correo, RUC, telefono, direccion, COD_admin;

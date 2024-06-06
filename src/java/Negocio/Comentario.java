@@ -1,4 +1,4 @@
-package Modelo;
+package Negocio;
 
 public class Comentario {
     private String idCom,nombre,comentario,fecha;

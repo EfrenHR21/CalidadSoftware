@@ -1,5 +1,5 @@
-<%@page import="DAO.*" %>
-<%@page import="Modelo.*" %>
+<%@page import="Persistencia.*" %>
+<%@page import="Negocio.*" %>
 <%@page import="Controlador.*" %>
 <%@page import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

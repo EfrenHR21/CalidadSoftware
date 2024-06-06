@@ -1,6 +1,6 @@
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="Modelo.Trabajador"%>
+<%@page import="Negocio.Trabajador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>

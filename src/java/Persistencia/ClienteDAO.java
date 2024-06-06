@@ -1,7 +1,7 @@
 
-package DAO;
+package Persistencia;
 
-import Modelo.Cliente;
+import Negocio.Cliente;
 import config.ConexionBD;
 import java.sql.*;
 import java.util.ArrayList;

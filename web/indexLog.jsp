@@ -1,6 +1,18 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*" %>
+<%@page import="config.ConexionBD" %>
+<%@page import="Controlador.*" %>
 <%@page import="Persistencia.*" %>
 <%@page import="Negocio.*" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<% 
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    Cliente cli = (Cliente) session.getAttribute("loginCliente");
+    if(cli==null || cli.getID_cli()==null || cli.getNom_cli()==null || cli.getApe_cli()==null){
+        response.sendRedirect("InicioS.jsp");
+    }
+%>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -13,7 +25,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" >
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="CSS/Testimonio.css" rel="stylesheet" type="text/css"/>
-        
+        <link href="CSS-Header/EstiloHeade.css" rel="stylesheet">
         <link  rel="stylesheet"
      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         
@@ -38,7 +50,23 @@
             conDao.insertarVisita(hit);
         %>
         <header>
-            <jsp:include page="Header.jsp" flush="true" />
+            <div class="logo">
+                <a href="indexLog.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
+            </div>
+
+
+            <li class="nav-item" style="font-weight: bold">
+                <a class="nav-link" href="ControladorCarrito?accion=Carrito"><i class="fa-solid fa-cart-arrow-down fa-fade">&nbsp;(<label style="color:#0500c8"> ${contador} </label>)</i>&nbsp;Carrito</a>
+            </li>
+            <div class="info-header2">
+                <nav>
+                    <a href="Intranet_cliente.jsp"><i class="fa-solid fa-hand-sparkles fa-bounce"></i>&nbsp;Bienvenid@ ${loginCliente.getNom_cli()}</a>
+                    <a href="Comentario.jsp"><i class="fa-solid fa-hand-sparkles fa-bounce"></i>&nbsp;Comentarios</a>
+                </nav>
+                <form action="Sesion" method="POST">
+                    <button name="cerrar" class="button type1" class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i>&nbsp;Cerrar Sesión</button>
+                </form>
+            </div>
         </header> 
 
         <div class="Principal-Main">
@@ -47,20 +75,9 @@
                 <div class="Info">
                     <h1>Bienvenidos a Restaurant Pihuichos</h1>
                     <p>La mejor opción en platos turísticos y comida marina.</p>
-                    <a href="MCarrito.jsp">Registrate para ver nuestros platos</a>
+                    <a href="MCarrito.jsp"> Ver nuestros platos</a>
                 </div>
             </div>
-            <!-- barra 
-        <div class="Barra-main">
-            <nav>
-                <ul class="menu-horizontal">
-                    <li><a href="index.jsp">Inicio</a></li>
-                    <li><a href="Nosotros.jsp">Nosotros</a></li>
-                    <li><a href="MCarrito.jsp">Productos</a></li>
-                    <li><a href="PreguntasFrecuentes.jsp">Preguntas</a></li>
-                </ul>
-            </nav> 
-        </div>  -->
 
             <h1 class="title">Nuestros platos más vendidos</h1>
             <div class="container-platos">

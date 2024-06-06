@@ -1,6 +1,6 @@
 package Controlador;
-import Modelo.Comentario;
-import DAO.ComentariosDAO;
+import Negocio.Comentario;
+import Persistencia.ComentariosDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

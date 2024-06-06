@@ -1,7 +1,7 @@
 <%@page import="java.math.BigInteger"%>
 <%@page import="java.security.MessageDigest"%>
-<%@page import="DAO.*" %>
-<%@page import="Modelo.*" %>
+<%@page import="Persistencia.*" %>
+<%@page import="Negocio.*" %>
 <%@page import="Controlador.*" %>
 <%@page import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -84,7 +84,6 @@
                            <li id="number">1 numero</li> 
                            <li id="len"> 6 caracteres</li> 
                         </ul>
-                        
                       </div>
                       
                       <div class="user-box">
@@ -92,11 +91,13 @@
                         <label>Edad</label>
                       </div> 
                       <div class="user-box">
-                          <input type="text" name="cell_cli" pattern="[0-9]+" required="">
+                          <input type="text" name="cell_cli" id="num" pattern="[0-9]+" required="">
                         <label>Numero</label>
+                        <span id="mensaje" ></span>
                       </div>                          
                       <div class="boton-box">
                           <input type="submit" name="enviar" value="Registrar cliente" id="enviar">
+                          <span id="mensaje" ></span>
                       </div>
                     </form>
                 </div>
@@ -111,7 +112,7 @@
             }
         %>              
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-        <script src="js/main.js" type="text/javascript"></script>
+        <script src="js/restricciones.js" type="text/javascript"></script>
         <script src="js/script.js" type="text/javascript"></script>
         
     </body>

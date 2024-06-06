@@ -1,6 +1,8 @@
-package DAO;
+package Persistencia;
 
-import Modelo.*;
+import Negocio.Compra;
+import Negocio.Carrito;
+import Negocio.Detalle_CompraA;
 import config.ConexionBD;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

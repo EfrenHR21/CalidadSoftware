@@ -1,7 +1,7 @@
 package Controlador;
 
-import DAO.ArticuloDAO;
-import Modelo.*;
+import Negocio.Articulo;
+import Persistencia.ArticuloDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

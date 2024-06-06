@@ -2,8 +2,8 @@
 <%@page import="java.util.*" %>
 <%@page import="config.ConexionBD" %>
 <%@page import="Controlador.*" %>
-<%@page import="Modelo.*" %>
-<%@page import="DAO.*" %>
+<%@page import="Persistencia.*" %>
+<%@page import="Negocio.*" %>
 
 <% 
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -21,12 +21,13 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <title>Restaurant Pihuicho</title>
-        
         <link href="CSS/Catalogo/MostrarComentario.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+        <link  rel="stylesheet"
+     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         <link href="CSS-Header/EstiloHeade.css" rel="stylesheet">
         <link href="CSS/Catalogo/Comentario.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
         <link href="CSS-Main-Principal/EstiloMPrincipal.css" rel="stylesheet">
         <link href="CSS-Main-Principal/EstiloMVendido.css" rel="stylesheet">
         <link href="CSS/whatsapp.css" rel="stylesheet" type="text/css"/>
@@ -45,9 +46,8 @@
             ComentariosDAO comDao = new ComentariosDAO();
         %>
         <header>
-            <input type="checkbox" id="check"> 
             <div class="logo">
-                <a href="index.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
+                <a href="indexLog.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
             </div>
 
 
@@ -97,9 +97,6 @@
                     com = iter.next();
             %>
  
-            
-
-                   
             <div class="listita-comment">
 
                 <ul id="comments-list" class="comments-list">
@@ -107,8 +104,8 @@
                     <li>
                         <div class="comment-main-level">
 
-                            <!-- Avatar
-                            <div class="comment-avatar"><img src="https://definicion.de/wp-content/uploads/2019/07/perfil-de-usuario.png" alt="10"> </div> -->
+                            <div class="comment-avatar">
+                            <img src="Imagenes/User-Avatar.png" alt="10px"/></div> 
                             <!--  Contenedor del Comentario -->
                             <div class="comment-box">
                                 <div class="comment-head">
@@ -135,6 +132,7 @@
             <jsp:include page="Footer.jsp" flush="true" />
         </footer> 
 
+    
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

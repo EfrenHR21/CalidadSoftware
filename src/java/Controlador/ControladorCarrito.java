@@ -1,11 +1,9 @@
 package Controlador;
 
-import DAO.CompraDAO;
-import DAO.PlatosDAO;
-import Modelo.*;
+import Negocio.*;
+import Persistencia.*;
 import config.Fecha;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.*;
 import javax.servlet.ServletException;

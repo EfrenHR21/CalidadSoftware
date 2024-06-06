@@ -3,8 +3,8 @@
 <%@page import="java.util.*" %>
 <%@page import="config.ConexionBD" %>
 <%@page import="Controlador.*" %>
-<%@page import="Modelo.*" %>
-<%@page import="DAO.*" %>
+<%@page import="Negocio.*" %>
+<%@page import="Persistencia.*" %>
 
 <%
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
@@ -23,8 +23,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <title>Restaurant Pihuicho</title>
 
-        <link href="CSS/Catalogo/EstiloLateralB.css" rel="stylesheet" type="text/css"/>
-        <link href="CSS/Catalogo/EstiloBFilas.css" rel="stylesheet" type="text/css"/>
         <link href="CSS-Main-Principal/EstiloMPrincipal.css" rel="stylesheet">
         <link href="CSS-Main-Principal/EstiloMVendido.css" rel="stylesheet">
         <link href="CSS/whatsapp.css" rel="stylesheet" type="text/css"/>
@@ -53,7 +51,7 @@
 
         <header>
             <div class="logo">
-                <a href="index.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
+                <a href="indexLog.jsp"><img src="Imagenes/IconoLogoGif.gif" alt=""/></a>
             </div>
             <div class="info-header2">
                 <nav>

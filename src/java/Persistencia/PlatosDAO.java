@@ -1,7 +1,7 @@
 
-package DAO;
+package Persistencia;
 
-import Modelo.Platos;
+import Negocio.Platos;
 import config.ConexionBD;
 import java.io.*;
 import java.sql.*;

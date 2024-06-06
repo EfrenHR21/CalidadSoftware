@@ -1,5 +1,5 @@
 
-package Modelo;
+package Negocio;
 
 public class Cliente {
     private String ID_cli, COD_admin, nom_cli, ape_cli, correo, contra, distritos, Id_dist, nom_dist, color_dist;

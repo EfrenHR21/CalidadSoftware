@@ -1,4 +1,4 @@
-package Modelo;
+package Negocio;
 
 public class Trabajador {
     private String ID_trab, COD_admin, nom_trab, ape_trab, correo, contra, cargo_trab, ID_cargo,nombre_cargo;

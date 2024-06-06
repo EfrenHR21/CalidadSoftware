@@ -1,5 +1,5 @@
 
-package Modelo;
+package Negocio;
 
 public class Articulo {
     private String ID_Articulo, COD_admin, nom_articulo, cantidad, Encargado, precioA, Proveedor, Cproducto, ID_cat, nombre_cat, color;

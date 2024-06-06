@@ -1,6 +1,6 @@
 
-package DAO;
-import Modelo.*;
+package Persistencia;
+import Negocio.Comentario;
 import config.ConexionBD;
 import java.sql.*;
 import java.util.*;
