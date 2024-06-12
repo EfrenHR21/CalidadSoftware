@@ -1,5 +1,5 @@
 
-package Controlador;
+package Presentacion;
 
 import Negocio.Trabajador;
 import Persistencia.TrabajadorDAO;

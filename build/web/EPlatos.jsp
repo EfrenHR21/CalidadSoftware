@@ -1,6 +1,6 @@
 <%@page import="Persistencia.*" %>
 <%@page import="Negocio.*" %>
-<%@page import="Controlador.*" %>
+<%@page import="Presentacion.*" %>
 <%@page import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 

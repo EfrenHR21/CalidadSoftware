@@ -1,6 +1,7 @@
-package Controlador;
 
-import Persistencia.PlatosDAO;
+package Presentacion;
+
+import Persistencia.ProveedorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -9,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "DltPlatos", urlPatterns = {"/DltPlatos"})
-public class DltPlatos extends HttpServlet {
+@WebServlet(name = "DltProveedor", urlPatterns = {"/DltProveedor"})
+public class DltProveedor extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -21,13 +22,13 @@ public class DltPlatos extends HttpServlet {
             String mensaje = "";
             int res;
             
-            PlatosDAO plaDao = new PlatosDAO();
+            ProveedorDAO provDao = new ProveedorDAO();
             
-            res = plaDao.eliminarPlato(id);
+            res = provDao.eliminarTrabajador(id);
                 if(res != 0){
                     mensaje = "Eliminación Completada";
                 }
-            request.setAttribute("message6", mensaje);
+            request.setAttribute("message3", mensaje);
             request.getRequestDispatcher("/Intranet_trabajador.jsp").forward(request, response);
         }catch(Exception e){
             System.out.println(e);

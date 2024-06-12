@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
 <%@page import="config.ConexionBD" %>
-<%@page import="Controlador.*" %>
+<%@page import="Presentacion.*" %>
 <%@page import="Persistencia.*" %>
 <%@page import="Negocio.*" %>
 

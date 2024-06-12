@@ -14,7 +14,7 @@ $(document).ready(function () {
           var input=$('#password').attr('type');
           // alert (input);
           $('#password').attr('type', 'text');
-          $('#btnMostrarClave').text('Ocular!');
+          $('#btnMostrarClave').text('Ocultar!');
       }else{
           var input=$('#password').attr('type');
           // alert (input);

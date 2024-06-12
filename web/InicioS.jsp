@@ -1,5 +1,4 @@
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
 <%@page import="Negocio.Trabajador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
@@ -23,7 +22,7 @@
             <div class="contenedor-login">
                 <div class="login-box">
                     <h2>Inicio de sesión</h2>    
-                    <form action="Sesion" method="POST"> 
+                    <form action="Sesion" method="POST" class="formulario__login"> 
                        <div class="user-box">
                         <input type="email" name="correo" id="correo" required="">
                         <label>Correo</label>

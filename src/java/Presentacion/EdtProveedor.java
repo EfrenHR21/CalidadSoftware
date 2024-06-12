@@ -1,7 +1,8 @@
-package Controlador;
 
-import Negocio.Cliente;
-import Persistencia.ClienteDAO;
+package Presentacion;
+
+import Negocio.Proveedor;
+import Persistencia.ProveedorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -10,35 +11,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "EdtCliente", urlPatterns = {"/EdtCliente"})
-public class EdtCliente extends HttpServlet {
+@WebServlet(name = "EdtProveedor", urlPatterns = {"/EdtProveedor"})
+public class EdtProveedor extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String id = request.getParameter("id");
-            String nom_cliC = request.getParameter("nom_cliC");
-            String ape_cliC = request.getParameter("ape_cliC");
-            String correoC = request.getParameter("correoC");
-            String contraC = request.getParameter("contraC");
-            int edadC = Integer.parseInt(request.getParameter("edadC"));
-            int cell_cliC = Integer.parseInt(request.getParameter("cell_cliC"));
-            String distrito = request.getParameter("distrito_cliC");
+            String nombreProvP = request.getParameter("nombreProvP");
+            String correoP = request.getParameter("correoP");
+            String RUCP = request.getParameter("RUCP");
+            String telefonoP = request.getParameter("telefonoP");
+            String direccionP = request.getParameter("direccionP");
             String mensaje = "";
             int res;
-            
-            Cliente cli = new Cliente(id, nom_cliC, ape_cliC, correoC, contraC, distrito, edadC, cell_cliC);
-            ClienteDAO cliDAO = new ClienteDAO();
+           
+            Proveedor prov = new Proveedor(id, nombreProvP, correoP, RUCP, telefonoP, direccionP);
+            ProveedorDAO provDAO = new ProveedorDAO();
             
             if(request.getParameter("enviar") != null){
-                res = cliDAO.actualizarCliente(cli);
+                res = provDAO.actualizarProveedor(prov);
                 if(res != 0){
                     mensaje = "Actualización Completada";
                 }
             }
             request.setAttribute("message", mensaje);
-            request.getRequestDispatcher("/EClientes.jsp").forward(request, response);
+            request.getRequestDispatcher("/EProveedor.jsp").forward(request, response);
+            
         }catch(Exception e){
             System.out.println(e);
         }

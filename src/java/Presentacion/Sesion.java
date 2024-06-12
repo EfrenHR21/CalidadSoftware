@@ -1,4 +1,4 @@
-package Controlador;
+package Presentacion;
 
 import Persistencia.ClienteDAO;
 import Persistencia.TrabajadorDAO;

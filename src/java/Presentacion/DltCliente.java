@@ -1,8 +1,6 @@
+package Presentacion;
 
-package Controlador;
-
-import Negocio.Proveedor;
-import Persistencia.ProveedorDAO;
+import Persistencia.ClienteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,34 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "EdtProveedor", urlPatterns = {"/EdtProveedor"})
-public class EdtProveedor extends HttpServlet {
+@WebServlet(name = "DltCliente", urlPatterns = {"/DltCliente"})
+public class DltCliente extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String id = request.getParameter("id");
-            String nombreProvP = request.getParameter("nombreProvP");
-            String correoP = request.getParameter("correoP");
-            String RUCP = request.getParameter("RUCP");
-            String telefonoP = request.getParameter("telefonoP");
-            String direccionP = request.getParameter("direccionP");
             String mensaje = "";
             int res;
-           
-            Proveedor prov = new Proveedor(id, nombreProvP, correoP, RUCP, telefonoP, direccionP);
-            ProveedorDAO provDAO = new ProveedorDAO();
             
-            if(request.getParameter("enviar") != null){
-                res = provDAO.actualizarProveedor(prov);
+            ClienteDAO cliDao = new ClienteDAO();
+            
+            res = cliDao.eliminarArticulo(id);
                 if(res != 0){
-                    mensaje = "Actualización Completada";
+                    mensaje = "Eliminación Completada";
                 }
-            }
-            request.setAttribute("message", mensaje);
-            request.getRequestDispatcher("/EProveedor.jsp").forward(request, response);
-            
+            request.setAttribute("message5", mensaje);
+            request.getRequestDispatcher("/Intranet_trabajador.jsp").forward(request, response);
         }catch(Exception e){
             System.out.println(e);
         }

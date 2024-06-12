@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
 <%@page import="config.ConexionBD" %>
-<%@page import="Controlador.*" %>
+<%@page import="Presentacion.*" %>
 <%@page import="Persistencia.*" %>
 <%@page import="Negocio.*" %>
 
@@ -176,7 +176,7 @@
                                     </div>
                                 </div>
                                 <p>No soy de la zona, pero me gusto probar sus platos 
-                                    tipicos, gans de volver a ir!</p>
+                                    tipicos, ganas de volver a ir!</p>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>

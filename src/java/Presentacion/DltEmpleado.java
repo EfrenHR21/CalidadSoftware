@@ -1,7 +1,7 @@
+package Presentacion;
 
-package Controlador;
-
-import Persistencia.ProveedorDAO;
+import Negocio.Trabajador;
+import Persistencia.TrabajadorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "DltProveedor", urlPatterns = {"/DltProveedor"})
-public class DltProveedor extends HttpServlet {
+@WebServlet(name = "DltEmpleado", urlPatterns = {"/DltEmpleado"})
+public class DltEmpleado extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -22,13 +22,14 @@ public class DltProveedor extends HttpServlet {
             String mensaje = "";
             int res;
             
-            ProveedorDAO provDao = new ProveedorDAO();
+            Trabajador trab = new Trabajador(id);
+            TrabajadorDAO trabDao = new TrabajadorDAO();
             
-            res = provDao.eliminarTrabajador(id);
+            res = trabDao.eliminarTrabajador(trab);
                 if(res != 0){
                     mensaje = "Eliminación Completada";
                 }
-            request.setAttribute("message3", mensaje);
+            request.setAttribute("message2", mensaje);
             request.getRequestDispatcher("/Intranet_trabajador.jsp").forward(request, response);
         }catch(Exception e){
             System.out.println(e);

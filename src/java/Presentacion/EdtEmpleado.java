@@ -1,6 +1,8 @@
-package Controlador;
-import Negocio.Comentario;
-import Persistencia.ComentariosDAO;
+
+package Presentacion;
+
+import Negocio.Trabajador;
+import Persistencia.TrabajadorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -8,33 +10,40 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebServlet(name = "RgtrComentarios", urlPatterns = {"/RgtrComentarios"})
-public class RgtrComentarios extends HttpServlet {
 
+@WebServlet(name = "EdtEmpleado", urlPatterns = {"/EdtEmpleado"})
+public class EdtEmpleado extends HttpServlet {
+
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            String nombre = request.getParameter("nombre");
-            String comentario = request.getParameter("comentario");
+        try (PrintWriter out = response.getWriter()) {
+            String id = request.getParameter("id");
+            String nom_trab = request.getParameter("nom_trabE");
+            String ape_trab = request.getParameter("ape_trabE");
+            String correo = request.getParameter("correoE");
+            String contra = request.getParameter("contraE");
+            int dni_trab = Integer.parseInt(request.getParameter("dni_trabE"));
+            int numero_trab = Integer.parseInt(request.getParameter("numero_trabE"));
+            String cargo_trab = request.getParameter("cargo_trabE");
             String mensaje = "";
             int res;
             
-            Comentario com = new Comentario(nombre, comentario);
-            ComentariosDAO comDao = new ComentariosDAO();
+            Trabajador trab = new Trabajador(id, nom_trab, ape_trab, correo, contra, cargo_trab, dni_trab, numero_trab);
+            TrabajadorDAO trabDao = new TrabajadorDAO();
             
             if(request.getParameter("enviar") != null){
-                res = comDao.RegistrarComentario(com);
-                if(res != 0 ){
-                    mensaje = "Registro Completado";
+                res = trabDao.actualizarTrabajador(trab);
+                if(res != 0){
+                    mensaje = "Actualización Completada";
                 }
             }
             request.setAttribute("message", mensaje);
-            request.getRequestDispatcher("/Comentario.jsp").forward(request, response);
-        } catch(Exception e){
+            request.getRequestDispatcher("/ETrabajador.jsp").forward(request, response);
+        }catch(Exception e){
             System.out.println(e);
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

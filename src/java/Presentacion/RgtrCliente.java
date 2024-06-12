@@ -1,7 +1,7 @@
-package Controlador;
+package Presentacion;
 
-import Negocio.Trabajador;
-import Persistencia.TrabajadorDAO;
+import Negocio.Cliente;
+import Persistencia.ClienteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -10,28 +10,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "DltEmpleado", urlPatterns = {"/DltEmpleado"})
-public class DltEmpleado extends HttpServlet {
+@WebServlet(name = "RgtrCliente", urlPatterns = {"/RgtrCliente"})
+public class RgtrCliente extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            String id = request.getParameter("id");
+            String nom_cli = request.getParameter("nom_cli");
+            String ape_cli = request.getParameter("ape_cli");
+            String correo = request.getParameter("correo");
+            String contra = request.getParameter("contra");
+            int edad = Integer.parseInt(request.getParameter("edad"));
+            int cell_cli = Integer.parseInt(request.getParameter("cell_cli"));
+            String id_dist = request.getParameter("distrito_cli");
             String mensaje = "";
             int res;
             
-            Trabajador trab = new Trabajador(id);
-            TrabajadorDAO trabDao = new TrabajadorDAO();
+            Cliente cli = new Cliente(nom_cli, ape_cli, correo, contra, id_dist, edad, cell_cli);
+            ClienteDAO cliDao = new ClienteDAO();
             
-            res = trabDao.eliminarTrabajador(trab);
-                if(res != 0){
-                    mensaje = "Eliminación Completada";
+            if(request.getParameter("enviar") != null && request.getParameter("distrito_cli").equals("0") ){
+                mensaje = "Error: Registro Incompleto";
+            }else if(request.getParameter("enviar") != null){
+                res = cliDao.insertarCliente(cli);
+                if(res != 0 ){
+                    mensaje = "Registro Completado";
                 }
-            request.setAttribute("message2", mensaje);
-            request.getRequestDispatcher("/Intranet_trabajador.jsp").forward(request, response);
-        }catch(Exception e){
+            }
+            request.setAttribute("message", mensaje);
+            request.getRequestDispatcher("/RClientes.jsp").forward(request, response);
+        } catch(Exception e){
             System.out.println(e);
         }
     }

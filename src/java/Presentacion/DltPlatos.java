@@ -1,8 +1,6 @@
+package Presentacion;
 
-package Controlador;
-
-import Negocio.Articulo;
-import Persistencia.ArticuloDAO;
+import Persistencia.PlatosDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,34 +9,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "EdtArticulo", urlPatterns = {"/EdtArticulo"})
-public class EdtArticulo extends HttpServlet {
+@WebServlet(name = "DltPlatos", urlPatterns = {"/DltPlatos"})
+public class DltPlatos extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
             String id = request.getParameter("id");
-            String nom_articulo = request.getParameter("nom_articuloA");
-            String cantidad = request.getParameter("cantidadA");
-            String Encargado = request.getParameter("EncargadoA");
-            String precioA = request.getParameter("precioAA");
-            String Proveedor = request.getParameter("ProveedorA");
-            String Cproducto = request.getParameter("CproductoA");
             String mensaje = "";
             int res;
             
-            Articulo trab = new Articulo(id, nom_articulo, cantidad, Encargado, precioA, Proveedor, Cproducto);
-            ArticuloDAO artDAO = new ArticuloDAO();
+            PlatosDAO plaDao = new PlatosDAO();
             
-            if(request.getParameter("enviar") != null){
-                res = artDAO.actualizarArticulo(trab);
+            res = plaDao.eliminarPlato(id);
                 if(res != 0){
-                    mensaje = "Actualización Completada";
+                    mensaje = "Eliminación Completada";
                 }
-            }
-            request.setAttribute("message", mensaje);
-            request.getRequestDispatcher("/EArticulos.jsp").forward(request, response);
+            request.setAttribute("message6", mensaje);
+            request.getRequestDispatcher("/Intranet_trabajador.jsp").forward(request, response);
         }catch(Exception e){
             System.out.println(e);
         }

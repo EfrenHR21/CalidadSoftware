@@ -1,6 +1,6 @@
-package Controlador;
-
-import Persistencia.ClienteDAO;
+package Presentacion;
+import Negocio.Comentario;
+import Persistencia.ComentariosDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -8,29 +8,33 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-@WebServlet(name = "DltCliente", urlPatterns = {"/DltCliente"})
-public class DltCliente extends HttpServlet {
+@WebServlet(name = "RgtrComentarios", urlPatterns = {"/RgtrComentarios"})
+public class RgtrComentarios extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String id = request.getParameter("id");
+        try ( PrintWriter out = response.getWriter()) {
+            String nombre = request.getParameter("nombre");
+            String comentario = request.getParameter("comentario");
             String mensaje = "";
             int res;
             
-            ClienteDAO cliDao = new ClienteDAO();
+            Comentario com = new Comentario(nombre, comentario);
+            ComentariosDAO comDao = new ComentariosDAO();
             
-            res = cliDao.eliminarArticulo(id);
-                if(res != 0){
-                    mensaje = "Eliminación Completada";
+            if(request.getParameter("enviar") != null){
+                res = comDao.RegistrarComentario(com);
+                if(res != 0 ){
+                    mensaje = "Registro Completado";
                 }
-            request.setAttribute("message5", mensaje);
-            request.getRequestDispatcher("/Intranet_trabajador.jsp").forward(request, response);
-        }catch(Exception e){
+            }
+            request.setAttribute("message", mensaje);
+            request.getRequestDispatcher("/Comentario.jsp").forward(request, response);
+        } catch(Exception e){
             System.out.println(e);
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
