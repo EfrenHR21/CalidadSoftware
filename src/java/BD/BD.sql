@@ -158,9 +158,9 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`ID_cli`, `COD_admin`, `nom_cli`, `ape_cli`, `correo`, `contra`, `edad`, `cell_cli`, `distritos`) VALUES
-('CL001', NULL, 'Juan', 'Perez', 'juan@gmail.com', '123', 20, 992757467, '002'),
-('CL002', NULL, 'Jimmy', 'Gonzales', 'jaimito@gmail.com', '123', 20, 945878546, '011'),
-('CL003', NULL, 'Alexia', 'Maldini', 'alexia@gmail.com', '123', 21, 954648789, '010'),
+('CL001', NULL, 'Juan', 'Perez', 'juan@gmail.com', 'ef96e97b383e1fec8b6a77c5695c6482', 20, 992757467, '002'),
+('CL002', NULL, 'Jimmy', 'Gonzales', 'jaimito@gmail.com', '1659c2fb0d7184b5fd8af37e0e8bc62a', 20, 945878546, '011'),
+('CL003', NULL, 'Alexia', 'Maldini', 'alexia@gmail.com', '0bbd2eb4d229993ea4f9c0954dc62651', 21, 954648789, '010'),
 ('CL004', NULL, 'Sara', 'Connor', 'sara@gmail.com', '123', 22, 987458525, '008'),
 ('CL006', NULL, 'Daniel', 'Danez', 'daniel@gmail.com', '123', 21, 958654895, '010'),
 ('CL007', NULL, 'Fabricio', 'Fernandez', 'fabricio@gmail.com', '123', 24, 941254879, '010'),
@@ -168,8 +168,8 @@ INSERT INTO `clientes` (`ID_cli`, `COD_admin`, `nom_cli`, `ape_cli`, `correo`, `
 ('CL009', NULL, 'Walter', 'Wiss', 'walter@gmail.com', '123', 23, 987454158, '004'),
 ('CL011', NULL, 'Renzo', 'Ramos', 'renzo@gmail.com', '123', 23, 956847521, '001'),
 ('CL012', NULL, 'Susana', 'Soria', 'susana@gmail.com', '123', 23, 987456858, '001'),
-('CL013', NULL, 'Gerald', 'Gil', 'gerald@gmail.com', '123', 20, 987458245, '003'),
-('CL014', NULL, 'DIego Alberto', 'Alvis Alves', 'Diego@gmail.com', '123', 21, 456546, '010');
+('CL015', NULL, 'Ant', 'Cori2', 'cori@gmail.com', 'a187d74e22faf4bdf0f8bc7575d0b62e', 45, 985478645, '010'),
+('CL016', NULL, 'Pedrito', 'Lujan', 'pedriluja@gmail.com', '12b54e7041471a9705a81633f234eee4', 22, 958685458, '005');
 
 --
 -- Disparadores `clientes`
@@ -449,16 +449,17 @@ CREATE TABLE `trabajadores` (
 --
 
 INSERT INTO `trabajadores` (`ID_trab`, `COD_admin`, `nom_trab`, `ape_trab`, `correo`, `contra`, `dni_trab`, `numero_trab`, `cargo_trab`) VALUES
-('TR012', NULL, 'Efren', 'Huaman Reyna', 'efren123@gmail.com ', '132', 74565842, 999999999, 'TR001'),
-('TR016', NULL, 'Perseo', 'Cardenas', 'perseo@gmail.com ', '123', 70844245, 987965856, 'TR001'),
-('TR017', NULL, 'Jhon', 'Pacheco', 'jhon@gmail.com', '123', 70547241, 992757467, 'TR001'),
-('TR018', NULL, 'Pepita', 'Pereza', 'pepito@gmail.com', '123', 80547241, 987589459, 'TR002'),
-('TR019', NULL, 'Pedro', 'Pedreros', 'pedro@gmail.com', '123', 74548768, 959658957, 'TR002'),
+('TR012', NULL, 'Efren', 'Huaman Reyna', 'efren123@gmail.com ', '202cb962ac59075b964b07152d234b70', 74565842, 999999999, 'TR001'),
+('TR016', NULL, 'Perseo', 'Cardenas', 'perseo@gmail.com  ', '202cb962ac59075b964b07152d234b70', 70844245, 987965856, 'TR001'),
+('TR017', NULL, 'Jhon', 'Pacheco', 'jhon@gmail.com ', '202cb962ac59075b964b07152d234b70', 70547241, 992757467, 'TR001'),
+('TR018', NULL, 'Pepita', 'Pereza', 'pepito@gmail.com ', '65ded5353c5ee48d0b7d48c591b8f430', 80547241, 987589459, 'TR002'),
+('TR019', NULL, 'Pedro', 'Pedreros', 'pedro@gmail.com ', '7ae7778c9ae86d2ded133e891995dc9e', 74548768, 959658957, 'TR002'),
 ('TR021', NULL, 'Oscar', 'Ortiz', 'oscar@gmail.com', '123', 74582158, 945158456, 'TR002'),
 ('TR022', NULL, 'Humbert', 'Humbez', 'humbert@gmail.com', '123', 78945812, 996595898, 'TR004'),
 ('TR023', NULL, 'Julia', 'Junez', 'julia@gmail.com', '123', 74578452, 945458956, 'TR003'),
 ('TR024', NULL, 'Tania', 'Tunez', 'tania@gmail.com', '123', 74145248, 975452689, 'TR003'),
 ('TR025', NULL, 'Kike', 'Kikez', 'kike@gmail.com', '123', 74561289, 945125879, 'TR004');
+
 
 --
 -- Disparadores `trabajadores`
