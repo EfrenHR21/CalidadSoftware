@@ -16,7 +16,6 @@ public class EdtCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
             String id = request.getParameter("id");
             String nom_cliC = request.getParameter("nom_cliC");
             String ape_cliC = request.getParameter("ape_cliC");
@@ -38,10 +37,7 @@ public class EdtCliente extends HttpServlet {
                 }
             }
             request.setAttribute("message", mensaje);
-            request.getRequestDispatcher("/EClientes.jsp").forward(request, response);
-        }catch(Exception e){
-            System.out.println(e);
-        }
+            request.getRequestDispatcher("/EClientes.jsp").forward(request, response);  
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

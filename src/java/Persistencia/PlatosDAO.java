@@ -104,8 +104,7 @@ public class PlatosDAO {
         }
         return res;
     }
-    
-    
+   
     public List editarPlatos(String id){
         ArrayList<Platos> list = new ArrayList();
         String sqlEp="select * from productos where CodigoProducto=?";
@@ -165,9 +164,12 @@ public class PlatosDAO {
     
     public ArrayList<Platos> obtenerProducto(){
         ArrayList<Platos> lista = new ArrayList<Platos>();
+        String sql = "select p.codigoProducto,p.nombre,p.precio, p.descripcion ,p.imagen FROM productos p ORDER BY p.nombre";
         try {
-            CallableStatement cl = ConexionBD.conectar().prepareCall("{call listarProductos}");
-            ResultSet rs = cl.executeQuery();
+            con = ConexionBD.conectar();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+//          CallableStatement cl = ConexionBD.conectar().prepareCall("{call listarProductos}");
             while(rs.next()){
                 Platos p = new Platos(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getString(4), rs.getBinaryStream(5));
                 lista.add(p);
@@ -178,10 +180,13 @@ public class PlatosDAO {
     
     public Platos obtenerProducto(int codigo){
         Platos p = null;
+        String sql = "select p.CodigoProducto, p.nombre, p.precio, p.descripcion, p.imagen FROM productos p WHERE p.CodigoProducto = ? ORDER BY p.nombre";
         try {
-            CallableStatement cl = ConexionBD.conectar().prepareCall("{call sp_ProductoCod(?)}");
-            cl.setInt(1, codigo);
-            ResultSet rs = cl.executeQuery();
+            con = ConexionBD.conectar();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, codigo);
+            rs = ps.executeQuery();
+//          CallableStatement cl = ConexionBD.conectar().prepareCall("{call sp_ProductoCod(?)}");
             while(rs.next()){
                 p = new Platos(rs.getInt(1), rs.getString(2), rs.getDouble(3), rs.getString(4), rs.getBinaryStream(5));
             }

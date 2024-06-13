@@ -747,7 +747,7 @@
                                     <td > <%= cli.getCell_cli() %> </td> 
                                     <td > <%= cli.getNom_dist() %> </td>
                                     <td> 
-                                        <a href="EUsuario.jsp?id=<%=cli.getID_cli() %>" class="btn btn-warning" target="blank">Editar</a>   
+                                        <a href="EClientes.jsp?id=<%=cli.getID_cli() %>" class="btn btn-warning" target="blank">Editar</a>   
                                     </td>
                                     <td>
                                         <a href="DltCliente?id=<%=cli.getID_cli() %>" class="btn btn-danger">Eliminar</a>
@@ -882,7 +882,7 @@
                                     <td><%= det.getPrecioCompra() %></td>
                                     <td><%= det.getEstado() %></td>
                                     <td><%= det.getFecha()%></td>
-                                    <td ><img src="ControladorCarrito?id=<%= det.getImagen()%>" height="50px" width="80px"> </td>
+                                    <td ><img src="ControladorCarrito?id=<%= det.getIdPlato()%>" height="50px" width="80px"> </td>
                                 </tr>
                                 
                                 <% 

@@ -3,6 +3,8 @@ package Persistencia;
 
 import Negocio.Cliente;
 import config.ConexionBD;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,25 +15,46 @@ public class ClienteDAO {
     PreparedStatement ps;
     ResultSet rs;
     int rspta=0;
+
+//Encriptación de contraseña    
+    public String getMD5(String input){
+        if (input!=null){
+        try{
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] encBytes = md.digest(input.getBytes("utf-8"));
+            BigInteger numero = new BigInteger(1, encBytes);
+            String encString = numero.toString(16);
+            while (encString.length()<32){
+                encString = "0" + encString;
+            }
+            return encString;
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        }else{
+            return "nothing";
+        }
+    }
     
     public Cliente loginCliente(String correo, String contra){
         Cliente cli = new Cliente();
+        String encpass = getMD5(contra);
         String sql="select * from clientes inner join distrito on clientes.distritos = distrito.IdDistrito where correo=? and contra=?";
         try{
-             con= ConexionBD.conectar();
-             ps=con.prepareStatement(sql);
-             ps.setString(1, correo);
-             ps.setString(2, contra);
-             rs=ps.executeQuery();
-             while(rs.next()){
-                 cli.setID_cli(rs.getString("ID_cli"));
-                 cli.setNom_cli(rs.getString("nom_cli"));
-                 cli.setApe_cli(rs.getString("ape_cli"));
-                 cli.setCorreo(rs.getString("correo"));
-                 cli.setContra(rs.getString("contra"));
-                 cli.setEdad(rs.getInt("edad"));
-                 cli.setCell_cli(rs.getInt("cell_cli"));
-                 cli.setNom_dist(rs.getString("Distrito"));
+            con= ConexionBD.conectar();
+            ps=con.prepareStatement(sql);
+            ps.setString(1, correo);
+            ps.setString(2, encpass);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                cli.setID_cli(rs.getString("ID_cli"));
+                cli.setNom_cli(rs.getString("nom_cli"));
+                cli.setApe_cli(rs.getString("ape_cli"));
+                cli.setCorreo(rs.getString("correo"));
+                cli.setContra(contra);
+                cli.setEdad(rs.getInt("edad"));
+                cli.setCell_cli(rs.getInt("cell_cli"));
+                cli.setNom_dist(rs.getString("Distrito"));
              }
         } catch (SQLException e){
             System.out.println(e);
@@ -171,6 +194,7 @@ public class ClienteDAO {
     
     public int insertarCliente(Cliente cli){
         int res = 0;
+        String encpass = getMD5(cli.getContra());
         String sqlIE="INSERT INTO clientes(nom_cli,ape_cli,correo,contra,edad,cell_cli,distritos) VALUES (?,?,?,?,?,?,?)";
         try{
             con= ConexionBD.conectar();
@@ -178,7 +202,7 @@ public class ClienteDAO {
             ps.setString(1, cli.getNom_cli() );
             ps.setString(2, cli.getApe_cli());
             ps.setString(3, cli.getCorreo());
-            ps.setString(4, cli.getContra());
+            ps.setString(4, encpass);
             ps.setInt(5, cli.getEdad());
             ps.setInt(6, cli.getCell_cli());
             ps.setString(7, cli.getDistritos());
@@ -221,6 +245,7 @@ public class ClienteDAO {
     
     public int actualizarCliente(Cliente cli){
         int res = 0;
+        String encpass = getMD5(cli.getContra());
         String sqlAC="UPDATE clientes set nom_cli=?, ape_cli=?, correo=?, contra=?, edad=?, cell_cli=?, distritos=? WHERE ID_cli=?";
         try{
             con= ConexionBD.conectar();
@@ -228,7 +253,7 @@ public class ClienteDAO {
             ps.setString(1, cli.getNom_cli());
             ps.setString(2, cli.getApe_cli());
             ps.setString(3, cli.getCorreo());
-            ps.setString(4, cli.getContra());
+            ps.setString(4, encpass);
             ps.setInt(5, cli.getEdad());
             ps.setInt(6, cli.getCell_cli());
             ps.setString(7, cli.getDistritos());
@@ -241,7 +266,7 @@ public class ClienteDAO {
         return res;
     }
     
-    public int eliminarArticulo(String id){
+    public int eliminarCliente(String id){
         int res = 0;
         String sqlEla="DELETE FROM clientes WHERE ID_cli=?";
         try{

@@ -22,7 +22,7 @@ public class DltCliente extends HttpServlet {
             
             ClienteDAO cliDao = new ClienteDAO();
             
-            res = cliDao.eliminarArticulo(id);
+            res = cliDao.eliminarCliente(id);
                 if(res != 0){
                     mensaje = "Eliminación Completada";
                 }
