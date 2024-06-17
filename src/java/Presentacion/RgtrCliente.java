@@ -2,6 +2,7 @@ package Presentacion;
 
 import Negocio.Cliente;
 import Persistencia.ClienteDAO;
+import Persistencia.CompraDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -57,7 +58,9 @@ public class RgtrCliente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        CompraDAO compradao = new CompraDAO();
+        int id=Integer.parseInt(request.getParameter("id"));
+        compradao.mostrarImg(id, response);
     }
 
     /**

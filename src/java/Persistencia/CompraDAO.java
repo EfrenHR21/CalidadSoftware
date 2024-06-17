@@ -67,6 +67,37 @@ public class CompraDAO {
         return idcompras;
     }
 
+    public void mostrarImg(int id, HttpServletResponse response) throws IOException{
+        String sqlmI = "select * from compras where idCompras="+id;
+        InputStream inputStream=null;
+        OutputStream outputStream=null;
+        BufferedInputStream bufferedInputStream=null;
+        BufferedOutputStream bufferedOutputStream=null;
+        response.setContentType("/image/*");
+        try {
+            outputStream=response.getOutputStream();
+            con= ConexionBD.conectar();
+            ps=con.prepareStatement(sqlmI);
+            rs=ps.executeQuery();
+            if(rs.next()){
+                inputStream=rs.getBinaryStream("Imagen"); 
+            }
+            bufferedInputStream=new BufferedInputStream(inputStream);
+            bufferedOutputStream=new BufferedOutputStream(outputStream);
+            
+            int i=0;
+            while((i=bufferedInputStream.read())!=-1){
+                bufferedOutputStream.write(i);
+                outputStream = response.getOutputStream();             
+            }
+            bufferedInputStream.close();
+            bufferedOutputStream.close();
+            inputStream.close();
+            outputStream.close();
+        } catch (SQLException e) {
+        }
+    }
+    
     public List mostrarCompraCliente(String id) {
         ArrayList<Compra> list = new ArrayList();
         String sql = "SELECT * FROM compras WHERE idCliente=?";

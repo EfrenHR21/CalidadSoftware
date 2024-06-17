@@ -882,7 +882,7 @@
                                     <td><%= det.getPrecioCompra() %></td>
                                     <td><%= det.getEstado() %></td>
                                     <td><%= det.getFecha()%></td>
-                                    <td ><img src="ControladorCarrito?id=<%= det.getIdPlato()%>" height="50px" width="80px"> </td>
+                                    <td ><img src="RgtrPlatos?id=<%= det.getIdPlato()%>" height="50px" width="80px"> </td>
                                 </tr>
                                 
                                 <% 

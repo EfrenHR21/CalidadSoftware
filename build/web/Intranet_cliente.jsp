@@ -108,7 +108,7 @@
                                     <td > <%= comp.getFecha() %> </td>
                                     <td > <%= comp.getMonto() %> </td>
                                     <td > <%= comp.getEstado() %> </td>
-                                    <td ><img <%= comp.getImagen() %>" height="50px" width="80px"> </td>
+                                    <td ><img src="RgtrCliente?id=<%= comp.getId()%>" height="400px" width="300px"> </td>
                                 </tr>
                                 <% 
                                     } }
